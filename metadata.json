@@ -1,0 +1,6 @@
+{
+  "name": "New Destiny Global Workforce",
+  "description": "Professional virtual assistant and workforce training solutions. Empowering People, Advancing Destinies, Impacting Businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
