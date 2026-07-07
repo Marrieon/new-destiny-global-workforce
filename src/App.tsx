@@ -8,7 +8,7 @@
  * SPDX-License-Identifier: Apache-2.5
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CompanyHeader from './components/CompanyHeader';
 import HeroSection from './components/HeroSection';
 import CostCalculator from './components/CostCalculator';
@@ -22,6 +22,23 @@ import { Sparkles, Globe, ShieldCheck, Mail, Phone, ExternalLink, GraduationCap,
 
 export default function App() {
   const [consoleTab, setConsoleTab] = useState<'hire' | 'apply' | 'consult' | 'portal'>('hire');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const triggerConsoleFocus = (tab: 'hire' | 'apply' | 'consult' | 'portal') => {
     setConsoleTab(tab);
@@ -173,14 +190,28 @@ export default function App() {
               &copy; {new Date().getFullYear()} New Destiny Global Workforce Business Solutions. All rights reserved. Registered USA.
             </p>
             <div className="flex gap-4">
-              <a href="#main-header" className="hover:text-white transition flex items-center gap-1 font-mono text-[10px]">
+              <button
+                onClick={scrollToTop}
+                className="hover:text-white transition flex items-center gap-1 font-mono text-[10px] cursor-pointer bg-transparent border-0 text-slate-500 focus:outline-hidden"
+              >
                 Back to Top <ChevronUp className="w-3.5 h-3.5" />
-              </a>
+              </button>
             </div>
           </div>
 
         </div>
       </footer>
+
+      {/* Floating Back to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-brand-black text-brand-gold hover:text-white border border-brand-gold/40 hover:border-brand-gold shadow-lg cursor-pointer transition-all hover:scale-110 active:scale-95 duration-200"
+          aria-label="Back to top"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
 
     </div>
   );
