@@ -6,7 +6,7 @@
 import { useState } from 'react';
 import { Check, ShieldCheck, Award, Quote, GraduationCap } from 'lucide-react';
 // @ts-ignore
-import founderPortrait from '../assets/images/rob.PNG';
+import founderPortrait from '../assets/images/rob.png';
 // @ts-ignore
 import staceyPortrait from '../assets/images/stacey_portrait_1783374251972.jpg';
 
