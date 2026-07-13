@@ -6,9 +6,9 @@
 import { useState } from 'react';
 import { Check, ShieldCheck, Award, Quote, GraduationCap } from 'lucide-react';
 // @ts-ignore
-import founderPortrait from '../assets/images/rob2.png';
+import founderPortrait from '../assets/images/rob3.png';
 // @ts-ignore
-import staceyPortrait from '../assets/images/stace.png';
+import staceyPortrait from '../assets/images/stace2.png';
 
 export default function FounderSection() {
   const [activeLeader, setActiveLeader] = useState<'robert' | 'stacey'>('robert');
